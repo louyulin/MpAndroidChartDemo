@@ -13,6 +13,7 @@ import com.github.mikephil.charting.data.*
 import com.github.mikephil.charting.formatter.IndexAxisValueFormatter
 import com.github.mikephil.charting.formatter.PercentFormatter
 import kotlinx.android.synthetic.main.activity_main.*
+import java.text.DecimalFormat
 
 
 class MainActivity : AppCompatActivity() {
@@ -79,8 +80,7 @@ class MainActivity : AppCompatActivity() {
         )
 
         val dataSet = PieDataSet(entries, "Election Results")
-        dataSet.setDrawIcons(false)
-//        dataSet.setDrawValues(false)  //是否显示百分比
+        //dataSet.setDrawValues(false)  //是否显示百分比
         dataSet.sliceSpace = 0f //缝隙
         dataSet.selectionShift = 5f //点击之后缩放
 
@@ -98,7 +98,7 @@ class MainActivity : AppCompatActivity() {
 //        dataSet.yValuePosition = PieDataSet.ValuePosition.OUTSIDE_SLICE
 
         val data = PieData(dataSet)
-        data.setValueFormatter(PercentFormatter(chart))//是否显示百分号
+        data.setValueFormatter(PercentFormatter())//是否显示百分号
         data.setValueTextSize(11f)
         data.setValueTextColor(Color.BLACK)
         chart.setData(data)
@@ -158,7 +158,8 @@ class MainActivity : AppCompatActivity() {
         barChart.setPinchZoom(false)
         barChart.setDrawBarShadow(false)
         barChart.setDrawGridBackground(false)
-
+        barChart.isScaleYEnabled = false //y轴缩放
+        barChart.isScaleXEnabled = false//x轴缩放
         val l: Legend = barChart.getLegend()
         l.isEnabled = false
         val xAxis: XAxis = barChart.getXAxis()
@@ -226,6 +227,8 @@ class MainActivity : AppCompatActivity() {
             arrayOf(DrawOrder.BAR, DrawOrder.LINE)
         )
         combineChart.legend.isEnabled = false
+        combineChart.isScaleYEnabled = false //y轴缩放
+        combineChart.isScaleXEnabled = false//x轴缩放
         val axisRight = combineChart.axisRight
         axisRight.isEnabled = false
         val axisLeft = combineChart.axisLeft
