@@ -50,9 +50,9 @@ class MainActivity : AppCompatActivity() {
 
     private fun setData(chart: PieChart) {
         val VORDIPLOM_COLORS1 = intArrayOf(
-            Color.parseColor("#4071FF"),
-            Color.parseColor("#F8AF35"),
-            Color.parseColor("#DE463A")
+            Color.parseColor("#5460FE"),
+            Color.parseColor("#9AAEFF"),
+            Color.parseColor("#C6CBFF")
         )
         val parties = arrayOf(
             "Party A", "Party B", "Party C"
@@ -199,9 +199,9 @@ class MainActivity : AppCompatActivity() {
         barChart.viewPortHandler.refresh(matrix, barChart, false)
 
         var set1 = BarDataSet(list1, "type1")
-        set1.color = Color.rgb(104, 241, 175)
+        set1.color = Color.parseColor("#5460FE")
         var set2 = BarDataSet(list2, "type2")
-        set2.color = Color.rgb(164, 228, 251)
+        set2.color = Color.parseColor("#6D75A2")
 
         val data = BarData(set1, set2)
         data.isHighlightEnabled = false//高亮
@@ -264,15 +264,15 @@ class MainActivity : AppCompatActivity() {
         }
 
         val set = LineDataSet(entries, "Line DataSet")
-        set.setColor(Color.rgb(240, 238, 70))
+        set.setColor(Color.parseColor("#5460FE"))
         set.setLineWidth(2.5f)
-        set.setCircleColor(Color.rgb(240, 238, 70))
+        set.setCircleColor(Color.parseColor("#5460FE"))
         set.setCircleRadius(5f)
-        set.setFillColor(Color.rgb(240, 238, 70))
+//        set.setFillColor(Color.rgb(240, 238, 70))
         set.setMode(LineDataSet.Mode.CUBIC_BEZIER)
         set.setDrawValues(true)
         set.setValueTextSize(10f)
-        set.setValueTextColor(Color.rgb(240, 238, 70))
+        set.setValueTextColor(Color.BLACK)
         set.axisDependency = YAxis.AxisDependency.LEFT
         lineData.addDataSet(set)
         lineData.isHighlightEnabled =false
@@ -285,8 +285,8 @@ class MainActivity : AppCompatActivity() {
             entries1.add(BarEntry(i.toFloat(), (Math.random() * 10).toFloat()))
         }
         val set1 = BarDataSet(entries1, "Bar 1")
-        set1.color = Color.rgb(60, 220, 78)
-        set1.valueTextColor = Color.rgb(60, 220, 78)
+        set1.color = Color.parseColor("#EBEEFA")
+        set1.valueTextColor = Color.TRANSPARENT
         set1.valueTextSize = 10f
         set1.axisDependency = YAxis.AxisDependency.LEFT
 
